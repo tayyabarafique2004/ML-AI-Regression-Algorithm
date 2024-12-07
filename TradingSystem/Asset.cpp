@@ -21,3 +21,5 @@ void Asset::setChildPair(const string& childPair) { this->childPair = childPair;
 
 float Asset::getTotalAssets() const { return totalAssets; }
 void Asset::setTotalAssets(float totalAssets) { this->totalAssets = totalAssets; }
+//date time database khud krlega? // Dekhna paray ga subha dekh letay wese built in functions atay push krsktay woh laga kr 
+//btw apnyy buy date sell date ka kuch kaha tha k wou req

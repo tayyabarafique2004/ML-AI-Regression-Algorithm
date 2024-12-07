@@ -12,12 +12,12 @@ class User
 public:
 
      User();
-     User(int id,string userId,string username,string HashedPassword,int age,string email,int WalletId);
+     User(string userId,string username,string HashedPassword,int age,string email,int WalletId);
     ~User();
 
     // Getters and Setters
-    int getId() const;
-    void setId(int id);
+ //   int getId() const;
+ //  void setId(int id);
     
     string getUsername() const;  
     void setUsername(const string& username);
@@ -37,7 +37,8 @@ public:
   int getWalletId() const;
     void setWalletId(int walletId);
 private:
-    int id;      
+// No need since its auto incremental We could have a search/fetch function from DB 
+ //   int id;      //oki
     string userId;          
     string username;       
     string hashedPassword; 

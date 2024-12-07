@@ -11,11 +11,11 @@ using namespace std;
 class Wallet {
 public:
     Wallet();
-    Wallet(int walletId, int userId, double balance);
+    Wallet(int userId, double balance);
     ~Wallet();
 
-    int getWalletId() const;
-    void setWalletId(int walletId);
+  //  int getWalletId() const;
+   // void setWalletId(int walletId);
 
     int getUserId() const;
     void setUserId(int userId);
@@ -24,9 +24,9 @@ public:
     void setBalance(double balance);
 
 private:
-    int walletId;
+  //  int walletId;
     int userId;
-    double balance;
+    float balance;
 };
 
 #endif
