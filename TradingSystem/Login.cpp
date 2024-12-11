@@ -1,26 +1,29 @@
 #include "Login.h"
 
+// Default constructor
+Login::Login() : userid(""), date("") {}
 
+// Parameterized constructor
+Login::Login(const std::string& userid, const std::string& date)
+    : userid(userid), date(date) {}
 
-// Use a Built in Function to Fetch current date 
-// Store it in a string and pass that to this constructor and store in DB 
-Login::Login() : userid(" "), date(" ") {}
+// Destructor
 Login::~Login() {}
 
-Login::Login(string userid, const string &date) : userid(userid), date(date) {}
-
-string Login::getUserId(){
+// Getters
+std::string Login::getUserId() const {
     return userid;
 }
-string Login::getDate(){
+
+std::string Login::getDate() const {
     return date;
 }
 
-void Login::setUserId(const string & id){
-    userid = id;
-}
-void Login::setDate(const string &d){
-   this->date = d;
+// Setters
+void Login::setUserId(const std::string& userid) {
+    this->userid = userid;
 }
 
-
+void Login::setDate(const std::string& date) {
+    this->date = date;
+}
