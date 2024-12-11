@@ -1,39 +1,66 @@
-#include "Registration.h"
+#include "Registrations.h"
 
+// Constructor
+Registrations::Registrations()
+    : head(nullptr), regId(0), userId(""), registrationDate(""), verificationCode("") {}
 
-// Constructor definition
-Registration::Registration(string userId, string registrationDate, string verificationCode)
-    : userId(userId), registrationDate(registrationDate), verificationCode(verificationCode) {}
+// Destructor
+Registrations::~Registrations() {
+    deleteAllUsers(); // Clean up all dynamically allocated nodes
+}
 
-// Destructor definition (if needed, currently empty as no dynamic memory allocation is done)
-Registration::~Registration() {}
+// Add a user to the list
+void Registrations::addUser(const User& user) {
+    UserNode* newNode = new UserNode(user, head); // Create a new node and point it to the current head
+    head = newNode;                              // Update head to the new node
+}
 
-// Getter for userId
-string Registration::getUserId() const {
+// Delete all users
+void Registrations::deleteAllUsers() {
+    UserNode* current = head;
+    while (current) {
+        UserNode* temp = current;
+        current = current->next;
+        delete temp; // Free memory for each node
+    }
+    head = nullptr; // Reset the head pointer
+}
+
+// Display all users
+void Registrations::displayUsers() const {
+    UserNode* current = head;
+    while (current) {
+        // Access user details using the User class getters
+        std::cout << "Username: " << current->user.getUsername() 
+                  << ", Email: " << current->user.getEmail() 
+                  << ", Age: " << current->user.getAge() 
+                  << ", Wallet ID: " << current->user.getWalletId()
+                  << std::endl;
+        current = current->next;
+    }
+}
+
+// Getters and setters for registration details
+std::string Registrations::getUserId() const {
     return userId;
 }
 
-// Getter for registrationDate
-string Registration::getRegistrationDate() const {
+std::string Registrations::getRegistrationDate() const {
     return registrationDate;
 }
 
-// Getter for verificationCode
-string Registration::getVerificationCode() const {
+std::string Registrations::getVerificationCode() const {
     return verificationCode;
 }
 
-// Setter for userId
-void Registration::setUserId(const string &userId) {
+void Registrations::setUserId(const std::string& userId) {
     this->userId = userId;
 }
 
-// Setter for registrationDate
-void Registration::setRegistrationDate(const string &registrationDate) {
+void Registrations::setRegistrationDate(const std::string& registrationDate) {
     this->registrationDate = registrationDate;
 }
 
-// Setter for verificationCode
-void Registration::setVerificationCode(const string &verificationCode) {
+void Registrations::setVerificationCode(const std::string& verificationCode) {
     this->verificationCode = verificationCode;
 }
