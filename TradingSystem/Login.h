@@ -1,41 +1,28 @@
-#include<iostream>
-#include<string>
-using namespace std;
-
 #ifndef LOGIN_H
 #define LOGIN_H
 
-#pragma once
+#include <iostream>
+#include <string>
 
-class Login
-{
+class Login {
 public:
-        Login();
-        // 
-        Login(string userid, const string &date = " ");
+    Login();                                       // Default constructor
+    Login(const std::string& userid,               // Parameterized constructor
+          const std::string& date = "");
 
-    ~Login();
+    ~Login();                                      // Destructor
 
-    // getters
-    string getUserId() const;
-    string getDate() const;
+    // Getters
+    std::string getUserId() const;
+    std::string getDate() const;
 
-    // setters
-    void setUserId(string id);
-    void setdate(string &date);
-
+    // Setters
+    void setUserId(const std::string& userid);
+    void setDate(const std::string& date);
 
 private:
-    string userid; // Not the Primary key 
-    string date; // can be left empty (can Push To database through built in function)
-    
-    //lemme change this in db its nvarchar there
-    //isVerified was also about this now status too ?y/n// let me see the tables again jya
-    // we dont need Status actually during login 
-    // remoove from db
+    std::string userid;  // User ID
+    std::string date;    // Login date
 };
-//listen refresh db 
-//oki lemme drop status
 
-//dropped
-#endif
+#endif // LOGIN_H
